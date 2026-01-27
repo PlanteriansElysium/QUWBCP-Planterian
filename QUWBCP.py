@@ -16,6 +16,8 @@ def data_get(team_number):
         response = requests.get(url, params= parameters, headers= agentID) #sends request to api
         response.raise_for_status() #bad status code checker (4xx-5xx)
         return response.json()
+    except requests.exceptions.Timeout: #message timeout
+        print("the request has timed out")
     except requests.exceptions.RequestException as e:
         print(f"an error has occured: {e}") #tells user if error is found
         return None
@@ -40,3 +42,4 @@ if __name__ == "__main__":
             print (f"c2: {team_info.get('score_2')}")
             print (f"c3: {team_info.get('score_3')}")
           
+
