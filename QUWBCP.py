@@ -8,16 +8,17 @@ def data_get(team_number):
     url = "https://scoreboard.uscyberpatriot.org/api/team/scores.php" # URL for API with teams endpoint
     parameters = {"team[]":team_number}
     agentID = {
-    "User-Agent": "https://github.com/PlanteriansElysium/QUWBCP-Planterian# by plantofelysium@gmail.com" #hello there its a me mario (planterian)
+    "User-Agent": "QUWBCP-Planterian/1.2 at https://github.com/PlanteriansElysium/QUWBCP-Planterian# by plantofelysium@gmail.com" #hello there its a me mario (planterian)
 }
 
 
     try:
-        response = requests.get(url, params= parameters, headers= agentID) #sends request to api
+        response = requests.get(url, params= parameters, headers= agentID, timeout= 5) #sends request to api
         response.raise_for_status() #bad status code checker (4xx-5xx)
         return response.json()
     except requests.exceptions.Timeout: #message timeout
         print("the request has timed out")
+        return None
     except requests.exceptions.RequestException as e:
         print(f"an error has occured: {e}") #tells user if error is found
         return None
@@ -33,7 +34,7 @@ if __name__ == "__main__":
             print (f"Team number: {team_info.get('team_number')}")
             print (f"play Time: {team_info.get('play_time')}")
             print (f"Score Time: {team_info.get('score_time')}")
-            print (f"CCS Score: {team_info.get('css_score')}")
+            print (f"CSS Score: {team_info.get('css_score')}")
             print (f"Location: {team_info.get('location')}")
             print (f"Division: {team_info.get('division')}")
             print (f"Tier: {team_info.get('tier')}")
@@ -42,4 +43,3 @@ if __name__ == "__main__":
             print (f"c2: {team_info.get('score_2')}")
             print (f"c3: {team_info.get('score_3')}")
           
-
