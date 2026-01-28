@@ -8,7 +8,7 @@ def data_get(team_number):
     url = "https://scoreboard.uscyberpatriot.org/api/team/scores.php" # URL for API with teams endpoint
     parameters = {"team[]":team_number}
     agentID = {
-    "User-Agent": "QUWBCP-Planterian/1.3 at https://github.com/PlanteriansElysium/QUWBCP-Planterian# by plantofelysium@gmail.com" #hello there its a me mario (planterian)
+    "User-Agent": "QUWBCP-Planterian/1.3 at https://github.com/PlanteriansElysium/QUWBCP-Planterian#" #hello there its a me mario (planterian)
 }
 
 
@@ -53,3 +53,4 @@ if __name__ == "__main__":
             else:
                 print("No web challenge score detected")
           
+
