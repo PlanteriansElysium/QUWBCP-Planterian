@@ -34,7 +34,7 @@ if __name__ == "__main__":
             print (f"Team number: {team_info.get('team_number')}")
             print (f"play Time: {team_info.get('play_time')}")
             print (f"Score Time: {team_info.get('score_time')}")
-            print (f"CSS Score: {team_info.get('css_score')}")
+            print (f"CCS Score: {team_info.get('ccs_score')}")
             print (f"Location: {team_info.get('location')}")
             print (f"Division: {team_info.get('division')}")
             print (f"Tier: {team_info.get('tier')}")
@@ -43,3 +43,4 @@ if __name__ == "__main__":
             print (f"c2: {team_info.get('score_2')}")
             print (f"c3: {team_info.get('score_3')}")
           
+
