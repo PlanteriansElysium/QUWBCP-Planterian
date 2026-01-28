@@ -8,7 +8,7 @@ def data_get(team_number):
     url = "https://scoreboard.uscyberpatriot.org/api/team/scores.php" # URL for API with teams endpoint
     parameters = {"team[]":team_number}
     agentID = {
-    "User-Agent": "QUWBCP-Planterian/1.2 at https://github.com/PlanteriansElysium/QUWBCP-Planterian# by plantofelysium@gmail.com" #hello there its a me mario (planterian)
+    "User-Agent": "QUWBCP-Planterian/1.3 at https://github.com/PlanteriansElysium/QUWBCP-Planterian# by plantofelysium@gmail.com" #hello there its a me mario (planterian)
 }
 
 
@@ -22,7 +22,7 @@ def data_get(team_number):
     except requests.exceptions.RequestException as e:
         print(f"an error has occured: {e}") #tells user if error is found
         return None
-    
+    #Note: JSON error checking is not neccessary as API endpoint output does not change signifigantly
 if __name__ == "__main__": 
     teamnum = "18-0218" #can be made a user input for other uses
     teamData = data_get(teamnum)
@@ -39,8 +39,17 @@ if __name__ == "__main__":
             print (f"Division: {team_info.get('division')}")
             print (f"Tier: {team_info.get('tier')}")
             print (f"Total score: {team_info.get('total')}")
-            print (f"c1: {team_info.get('score_1')}")
-            print (f"c2: {team_info.get('score_2')}")
-            print (f"c3: {team_info.get('score_3')}")
+            print("\n")
+            if team_info.get('score_1') != None: #checks if cisco scores are released
+                print('Cisco is released')
+                print (f"Cisco Quiz Score: {team_info.get('score_1')}")
+                print (f"Packet Tracer Score: {team_info.get('score_2')}")
+                print("\n")
+            else:
+                print("Cisco has not released")
+                print("\n")
+            if team_info.get('score_3') != None: #checks if web challenge exists in given round
+                print (f"Web Challenge score: {team_info.get('score_3')}")
+            else:
+                print("No web challenge score detected")
           
-
