@@ -1,4 +1,4 @@
 # QUWBCP-Planterian
 Quirked up white boy cypat script
 
-Basic script that pings the cypat score API and prints info to console 
+User will input team number in format xx-xxxx and recive all data from the CyberPatriot API teams endpoint. Leaving the team number input blank defaults to 18-0218.
