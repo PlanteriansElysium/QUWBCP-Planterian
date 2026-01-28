@@ -24,7 +24,10 @@ def data_get(team_number):
         return None
     #Note: JSON error checking is not neccessary as API endpoint output does not change signifigantly
 if __name__ == "__main__": 
-    teamnum = "18-0218" #can be made a user input for other uses
+    teamnum = input("Input Team num: ")
+    if teamnum == "":
+        teamnum = "18-0218"
+        
     teamData = data_get(teamnum)
     if teamData:
         print(f"Data for team {teamnum}:") #api returns object with a bunch of data
@@ -53,4 +56,3 @@ if __name__ == "__main__":
             else:
                 print("No web challenge score detected")
           
-
