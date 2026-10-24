@@ -26,7 +26,7 @@ def data_get(team_number):
 if __name__ == "__main__": 
     teamnum = input("Input Team num: ")
     if teamnum == "":
-        teamnum = "18-0218"
+        teamnum = "19-1777"
         
     teamData = data_get(teamnum)
     if teamData:
